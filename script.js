@@ -23,13 +23,31 @@ const closeButton = document.querySelector("#close-button")
 //Save books in library array
 let myLibrary = [];
 
+
+class Book{
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    get bookTitle() {
+        return `The title is ${this.title}`;
+    }
+
+    get bookAuthor() {
+        return `The author is ${this.author}`;
+    }
+    //Set new author - to be used when edit button added
+    set newAuthor(author) {
+        this.author = author;
+    }
+  };
+    
+
 // the constructor for creating new books
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-};
+
 
 const addBookToLibrary = () => {
     let title = titleInput.value; 
@@ -113,8 +131,6 @@ const displayLibrary = () => {
             card.setAttribute("style", "border-left: 4px solid red")
             
         }
-
-
         
         //delete button
         deleteButton = document.createElement("button")
