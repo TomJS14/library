@@ -41,11 +41,12 @@
 
         <dialog class="modal">
             <h1>Add your book</h1>
-            <form class="book-form" method="post">
+            <form novalidate class="book-form" method="post">
                 
-                <label for="title-input">*Book Title<input id="title-input" name="title-input" type="text" placeholder="Harry Potter" required></label>
-                <label for="author-input">*Book Author<input id="author-input" name="author-input" type="text" placeholder="JK Rowling"></label>
-                <label for="page-input">*Page count<input id="page-input" name="page-input" type="number" placeholder="50"></label>
+                <label for="title-input">Book Title<input id="title-input" name="title-input" type="text" placeholder="Harry Potter" required minlength="3"></label>
+                
+                <label for="author-input">Book Author<input id="author-input" name="author-input" type="text" placeholder="JK Rowling"></label>
+                <label for="page-input">Page count<input id="page-input" name="page-input" type="number" placeholder="50" min="1" max="10000"></label>
                 <div class="checkbox">
                     <p>Is the book read?</p>
                     <label for="read-input" class="switch"><input id="read-input" name="read-input" class="switch" type="checkbox"><span class="slider round"></span></label>
@@ -53,6 +54,7 @@
                 <button id="submit-button" class="button" type="submit" formmethod="dialog">Add to Library</button>
                 <button id="close-button" class="button" type="submit" formmethod="dialog">Cancel</button>
             </form>
+            <span class="title-error" aria-live="polite"></span>
 
            
 
